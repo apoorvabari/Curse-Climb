@@ -1,0 +1,41 @@
+<div th:fragment="sidebar" class="sidebar glass-panel">
+    <h2>⚔️ <span th:text="#{sidebar.players}">Players</span></h2>
+    <ul id="playerList"></ul>
+
+    <!-- 3D Dice -->
+    <div class="dice-area hidden" id="diceArea">
+        <div class="die-scene" id="dieScene">
+            <div class="die-cube" id="dieCube">
+                <!-- Face 1: 1 pip -->
+                <div class="die-face f1"><span class="pip c"></span></div>
+                <!-- Face 6: 6 pips -->
+                <div class="die-face f6">
+                    <span class="pip tl"></span><span class="pip tr"></span>
+                    <span class="pip ml"></span><span class="pip mr"></span>
+                    <span class="pip bl"></span><span class="pip br"></span>
+                </div>
+                <!-- Face 2: 2 pips -->
+                <div class="die-face f2"><span class="pip tr"></span><span class="pip bl"></span></div>
+                <!-- Face 5: 5 pips -->
+                <div class="die-face f5">
+                    <span class="pip tl"></span><span class="pip tr"></span>
+                    <span class="pip c"></span>
+                    <span class="pip bl"></span><span class="pip br"></span>
+                </div>
+                <!-- Face 3: 3 pips -->
+                <div class="die-face f3"><span class="pip tr"></span><span class="pip c"></span><span class="pip bl"></span></div>
+                <!-- Face 4: 4 pips -->
+                <div class="die-face f4">
+                    <span class="pip tl"></span><span class="pip tr"></span>
+                    <span class="pip bl"></span><span class="pip br"></span>
+                </div>
+            </div>
+        </div>
+        <div class="dice-label" id="diceLabel">Roll the dice!</div>
+        <button id="rollBtn" class="btn accent hidden" th:text="#{sidebar.rollBtn}">🎲 Roll Dice</button>
+    </div>
+
+    <div id="statusMessage" class="status-box"></div>
+
+    <button id="quitBtn" class="btn quit-btn hidden">🚪 Quit Game</button>
+</div>

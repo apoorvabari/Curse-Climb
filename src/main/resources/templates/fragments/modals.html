@@ -1,0 +1,50 @@
+<!-- Task Modal -->
+<div th:fragment="taskModal">
+<div id="taskModal" class="modal hidden">
+    <div class="modal-content glass-panel horror">
+        <h2 id="taskTitle">Task!</h2>
+        <p id="taskDesc">Solve this to proceed:</p>
+        
+        <!-- Standard math question elements -->
+        <div id="standardMathArea">
+            <p id="mathQuestion" class="question"></p>
+            <input type="number" id="taskAnswer" placeholder="Answer">
+            <button id="submitTaskBtn" class="btn warning" th:text="#{modal.task.submit}">Submit</button>
+        </div>
+
+        <!-- High-fidelity Mini-Games Container -->
+        <div id="miniGameContainer"></div>
+
+        <div id="i18n-strings" class="hidden"
+             th:attr="data-horror-title=#{modal.task.title.horror},
+                      data-horror-desc=#{modal.task.desc.horror},
+                      data-ladder-title=#{modal.task.title.ladder},
+                      data-ladder-desc=#{modal.task.desc.ladder}">
+        </div>
+    </div>
+</div>
+
+<!-- Quit Confirmation Modal -->
+<div id="quitModal" class="modal hidden">
+    <div class="modal-content glass-panel quit-modal-content">
+        <h2 class="quit-title">🚪 Quit Game?</h2>
+        <p class="quit-description">This will end the game for ALL players and erase all progress. Are you sure?</p>
+        <div class="quit-buttons-container">
+            <button id="confirmQuitBtn" class="btn btn-quit-confirm">Yes, Quit</button>
+            <button id="cancelQuitBtn" class="btn primary btn-quit-cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<!-- Victory Celebrations Modal -->
+<div id="victoryModal" class="modal hidden victory-modal-overlay">
+    <canvas id="victoryCanvas" class="victory-canvas"></canvas>
+    <div class="modal-content glass-panel victory-modal-content">
+        <div class="victory-trophy">🏆</div>
+        <h1 class="victory-heading">VICTORY</h1>
+        <h2 id="victoryPlayerName" class="victory-player-name"></h2>
+        <p class="victory-description">has escaped the Dark Forest and conquered the Curse Climb!</p>
+        <button id="victoryLobbyBtn" class="btn accent btn-victory-lobby">Play Again</button>
+    </div>
+</div>
+</div>

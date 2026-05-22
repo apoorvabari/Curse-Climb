@@ -1,0 +1,593 @@
+/* modals.css - Custom modal styling for CurseClimb */
+
+/* Quit Confirmation Modal */
+.quit-modal-content {
+    border: 2px solid #ef5350 !important;
+    box-shadow: 0 0 40px rgba(239,83,80,0.4) !important;
+    max-width: 360px !important;
+}
+
+.quit-title {
+    color: #ef9a9a;
+}
+
+.quit-description {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+}
+
+.quit-buttons-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-quit-confirm {
+    background: #c62828 !important;
+    color: white !important;
+    flex: 1;
+}
+
+.btn-quit-cancel {
+    flex: 1;
+}
+
+/* Victory Celebrations Modal */
+.victory-modal-overlay {
+    background: rgba(0,0,0,0.88) !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.victory-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.victory-modal-content {
+    border: 2px solid #ffc107 !important;
+    box-shadow: 0 0 50px rgba(255,193,7,0.5) !important;
+    z-index: 2;
+    position: relative;
+    max-width: 500px !important;
+    text-align: center;
+    padding: 3rem 2rem !important;
+}
+
+.victory-trophy {
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1rem;
+    animation: trophyBounce 1s ease-in-out infinite alternate;
+}
+
+.victory-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    margin: 0 0 1rem;
+    background: linear-gradient(135deg, #ffd700, #ffb300, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.victory-player-name {
+    color: #fff59d;
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.victory-description {
+    color: rgba(212,237,218,0.8);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-victory-lobby {
+    width: auto !important;
+    padding: 0.8rem 2.5rem !important;
+    font-size: 1.1rem !important;
+}
+
+/* --- High Fidelity Mini-Games --- */
+
+.game-title-header {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.game-instructions {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* 1. Memory Match Cards */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 1.5rem 0;
+    perspective: 1000px;
+}
+.memory-card {
+    height: 80px;
+    background: radial-gradient(circle, #10381f 0%, #082010 100%);
+    border: 2px solid #b89742;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.4s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow: 0 0 8px rgba(184, 151, 66, 0.3);
+    transform-style: preserve-3d;
+}
+.memory-card:hover {
+    transform: scale(1.05);
+    border-color: #ffd700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+}
+.memory-card.flipped {
+    transform: rotateY(180deg) scale(1.05);
+    background: radial-gradient(circle, #1b4d2e 0%, #0f301b 100%);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+}
+.memory-card.matched {
+    background: radial-gradient(circle, #0e2917 0%, #07190d 100%);
+    border-color: #28a745;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.4);
+    opacity: 0.75;
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
+/* 2. Quick Math Chalkboard */
+.chalkboard {
+    background: #112217;
+    border: 6px solid #4a3728;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 0 15px rgba(74, 55, 40, 0.5);
+    font-family: 'Courier New', Courier, monospace;
+}
+.chalk-equation {
+    font-size: 2.5rem;
+    color: #39ff14;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(57, 255, 20, 0.6);
+    margin-bottom: 1.5rem;
+}
+.chalk-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.chalk-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(57, 255, 20, 0.4);
+    border-radius: 4px;
+    color: #39ff14;
+    font-family: inherit;
+    font-size: 1.4rem;
+    padding: 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-shadow: 0 0 4px rgba(57, 255, 20, 0.4);
+}
+.chalk-btn:hover {
+    background: rgba(57, 255, 20, 0.15);
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.6);
+    transform: translateY(-2px);
+}
+
+/* 3. Pattern Sequence */
+.pattern-altar {
+    background: radial-gradient(circle, #222 0%, #111 100%);
+    border: 2px solid #555;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+.pattern-sequence-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+.pattern-symbol {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.15);
+    animation: floatArtifact 2s ease-in-out infinite alternate;
+}
+.pattern-symbol.mystery {
+    background: rgba(255, 215, 0, 0.1);
+    border-color: #ffd700;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 2.2rem;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+@keyframes floatArtifact {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-6px); }
+}
+
+/* 4. Color Click Order */
+.color-diamond-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 280px;
+    margin: 1.5rem auto;
+}
+.color-orb {
+    height: 90px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.color-orb::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+}
+.orb-red { background: radial-gradient(circle, #ff3344 0%, #aa0011 100%); }
+.orb-blue { background: radial-gradient(circle, #3399ff 0%, #0044aa 100%); }
+.orb-green { background: radial-gradient(circle, #33cc66 0%, #006622 100%); }
+.orb-purple { background: radial-gradient(circle, #cc33ff 0%, #660099 100%); }
+
+.orb-red.active { box-shadow: 0 0 30px #ff3344; transform: scale(1.08); }
+.orb-blue.active { box-shadow: 0 0 30px #3399ff; transform: scale(1.08); }
+.orb-green.active { box-shadow: 0 0 30px #33cc66; transform: scale(1.08); }
+.orb-purple.active { box-shadow: 0 0 30px #cc33ff; transform: scale(1.08); }
+
+/* 5. Word Scramble */
+.scramble-letters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+.scramble-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e0d0b0;
+    background: radial-gradient(circle, #4a3e35 0%, #2b231d 100%);
+    border: 2px solid #8b7355;
+    border-radius: 6px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+.scramble-letter:hover {
+    transform: scale(1.08) translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.6);
+    border-color: #ffd700;
+}
+.scramble-target {
+    background: rgba(0,0,0,0.4);
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+/* 6. Don't Blink (Talisman Hover) */
+.talisman-arena {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: rgba(0,0,0,0.9);
+    border: 2px solid #8b0000;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+.ghost-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    pointer-events: none;
+    transition: opacity 0.5s, transform 0.5s;
+    filter: grayscale(1) contrast(1.5);
+}
+.ghost-glitch {
+    animation: horrorGlitch 0.15s infinite alternate;
+}
+@keyframes horrorGlitch {
+    0% { transform: translate(1px, 1px) rotate(0deg); filter: hue-rotate(0deg) invert(0); }
+    100% { transform: translate(-1px, -2px) rotate(0.5deg); filter: hue-rotate(180deg) invert(0.1); }
+}
+.protective-talisman {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.4) 0%, rgba(57, 255, 20, 0.05) 75%);
+    border: 2px solid #39ff14;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.8);
+    cursor: pointer;
+    transition: left 0.1s ease-out, top 0.1s ease-out;
+}
+.game-progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.game-progress-fill {
+    height: 100%;
+    background: #39ff14;
+    width: 0%;
+    transition: width 0.1s linear, background-color 0.3s;
+}
+
+/* 7. Dark Maze Escape */
+.maze-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 4px;
+    max-width: 270px;
+    margin: 1.5rem auto;
+    background: #000;
+    padding: 6px;
+    border: 3px solid #333;
+    border-radius: 6px;
+}
+.maze-cell {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    background: #050505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+}
+.maze-cell.wall {
+    background: radial-gradient(circle, #2b1d16 0%, #150d0a 100%);
+    border: 1px solid #3a281e;
+}
+.maze-cell.player {
+    background: radial-gradient(circle, #39ff14 0%, #00aa00 100%);
+    box-shadow: 0 0 12px #39ff14;
+    z-index: 5;
+}
+.maze-cell.exit {
+    background: radial-gradient(circle, #ffd700 0%, #aa7700 100%);
+    box-shadow: 0 0 12px #ffd700;
+    animation: trophyBounce 1s infinite alternate;
+}
+.maze-cell.hidden-fog {
+    background: #000 !important;
+    border-color: #000 !important;
+    color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* 8. Monster Chase Reaction */
+.chase-lane {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0a0a0d;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    margin: 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+.chase-tile {
+    width: 45px;
+    height: 45px;
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    background: rgba(255,255,255,0.02);
+}
+.chase-tile.danger-zone {
+    border-color: #ff3344;
+    background: rgba(255, 51, 68, 0.1);
+    box-shadow: 0 0 10px rgba(255, 51, 68, 0.3);
+}
+.chase-tile.monster-here {
+    animation: horrorGlitch 0.2s infinite alternate;
+}
+.btn-chase-run {
+    width: 100% !important;
+    font-size: 1.4rem !important;
+    padding: 0.8rem !important;
+    background: #c62828 !important;
+    box-shadow: 0 0 15px rgba(198, 40, 40, 0.5) !important;
+}
+.btn-chase-run:hover {
+    background: #ff3344 !important;
+    box-shadow: 0 0 25px rgba(255, 51, 68, 0.8) !important;
+}
+
+/* 9. Flickering Candle */
+.candle-survival-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+.candle-graphic-container {
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    width: 100%;
+}
+.candle-wind-arrow {
+    position: absolute;
+    top: 30%;
+    font-size: 2.2rem;
+    color: #3399ff;
+    text-shadow: 0 0 10px #3399ff;
+    animation: arrowPulse 0.4s infinite alternate;
+    pointer-events: none;
+}
+.wind-left { left: 10%; }
+.wind-right { right: 10%; }
+
+@keyframes arrowPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
+}
+
+.candle-stick {
+    width: 24px;
+    height: 70px;
+    background: #dedede;
+    border-radius: 4px;
+    border: 2px solid #8b7355;
+    position: relative;
+}
+.candle-stick::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: -10px; width: 44px; height: 8px;
+    background: #8b7355;
+    border-radius: 4px;
+}
+.candle-flame {
+    width: 16px;
+    height: 36px;
+    background: radial-gradient(ellipse at bottom, #ffffff 0%, #ffdd00 25%, #ff3300 70%, rgba(255,51,0,0) 100%);
+    border-radius: 50% 50% 20% 20%;
+    margin-bottom: 2px;
+    box-shadow: 0 -4px 15px rgba(255,221,0,0.8);
+    animation: flickerFlame 0.15s infinite alternate;
+    transition: transform 0.2s, opacity 0.2s;
+}
+@keyframes flickerFlame {
+    0% { transform: rotate(-2deg) scale(0.95); }
+    100% { transform: rotate(2deg) scale(1.05); }
+}
+
+.candle-shield-sides {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 15px;
+}
+.shield-btn {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+.shield-btn.shielding {
+    background: rgba(255,215,0,0.25) !important;
+    box-shadow: 0 0 15px rgba(255,215,0,0.6);
+}
+
+/* 10. Survival Timer (Stay Calm) */
+.stay-calm-area {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btn-calm-safe {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #39ff14;
+    background: radial-gradient(circle, rgba(57, 255, 20, 0.3) 0%, rgba(57, 255, 20, 0.02) 100%);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.6);
+    color: #39ff14;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-calm-safe:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 35px rgba(57, 255, 20, 0.9);
+}
+.fake-hallucination-modal {
+    position: absolute;
+    width: 180px;
+    background: rgba(139,0,0,0.9);
+    border: 2px solid #ff3344;
+    box-shadow: 0 0 25px rgba(255, 51, 68, 0.6);
+    border-radius: 8px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    z-index: 100;
+    animation: floatArtifact 1.5s infinite alternate;
+}
+.fake-hallucination-modal h4 { font-size: 0.9rem; margin-bottom: 0.4rem; color: #ffcccc; }
+.fake-hallucination-modal button {
+    background: #ff3344;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-weight: bold;
+}

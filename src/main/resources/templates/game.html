@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{game.title}">CurseClimb</title>
+    <link rel="icon" type="image/png" th:href="@{/favicon.png}">
+    <link rel="stylesheet" th:href="@{/css/style.css(v=3)}">
+    <link rel="stylesheet" th:href="@{/css/modals.css(v=3)}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #040a04 !important;
+            color: #e0f2f1 !important;
+            font-family: 'Outfit', sans-serif !important;
+            background-image: url('/images/artistic_bg.png') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+        }
+
+        .glass-panel {
+            background: rgba(8, 32, 8, 0.65) !important;
+            backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(100, 255, 100, 0.15) !important;
+            border-radius: 20px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Replace with lobby fragment -->
+    <div th:replace="~{fragments/lobby :: lobby}"></div>
+
+    <div id="gameUI" class="hidden">
+        <!-- Replace with sidebar fragment -->
+        <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+
+        <!-- Replace with board fragment -->
+        <div th:replace="~{fragments/board :: board}"></div>
+    </div>
+
+    <!-- Replace with modal fragment -->
+    <div th:replace="~{fragments/modals :: taskModal}"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script th:src="@{/js/game.js(v=3)}"></script>
+</body>
+
+</html>

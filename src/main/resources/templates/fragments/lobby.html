@@ -1,0 +1,40 @@
+<div th:fragment="lobby" id="lobby" class="glass-panel lobby-panel">
+    <div class="lobby-title">
+        <span class="title-snake">🐍</span>
+        <h1 th:text="#{game.title}">CurseClimb</h1>
+        <span class="title-ladder">🪜</span>
+    </div>
+    <p class="lobby-subtitle">Dark Forest Edition</p>
+
+    <div class="lobby-form" id="setupForm">
+        <label class="field-label" th:text="#{lobby.playerCount}">Number of Players</label>
+        <div class="player-count-selector" id="countSelector">
+            <button class="count-btn active" data-count="1" onclick="setCount(1)">1</button>
+            <button class="count-btn" data-count="2" onclick="setCount(2)">2</button>
+            <button class="count-btn" data-count="3" onclick="setCount(3)">3</button>
+            <button class="count-btn" data-count="4" onclick="setCount(4)">4</button>
+            <button class="count-btn" data-count="5" onclick="setCount(5)">5</button>
+        </div>
+
+        <div id="nameInputs">
+            <!-- Dynamically populated -->
+        </div>
+
+        <button class="btn primary" id="startNewBtn" onclick="startNewGame()">
+            ⚔️ <span th:text="#{lobby.startBtn}">Start Game</span>
+        </button>
+    </div>
+
+    <div class="lobby-resume hidden" id="resumeSection">
+        <div class="resume-divider"><span>— or —</span></div>
+        <button class="btn resume-btn" onclick="resumeGame()">▶ Resume Current Game</button>
+    </div>
+
+    <!-- i18n data attributes for JS -->
+    <span id="i18n-strings" class="hidden" th:attr="
+        data-horror-title=#{task.horror.title},
+        data-horror-desc=#{task.horror.desc},
+        data-ladder-title=#{task.ladder.title},
+        data-ladder-desc=#{task.ladder.desc}">
+    </span>
+</div>
